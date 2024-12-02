@@ -408,7 +408,7 @@
         const blob = new Blob([htmlContent], { type: "text/html" });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = "edited-website.html";
+        link.download = "edited-website.php";
         link.click();
       }
 
