@@ -21,16 +21,16 @@ $role = $_SESSION['role'] ?? $_GET['role'];
     <h3><?php echo ucfirst($role); ?> Menu</h3>
     <ul>
       
-        <li><a href="index.php" data-section="webpage-content">Edit Webpage Content</a></li>
+        <li><a href="editwebpage.php" data-section="webpage-content">Edit Webpage Content</a></li>
         
         <?php if ($role !== 'Editor') : ?>
             <li><a href="webpagedesign.php" data-section="webpage-design">Modify Website Design</a></li>
-            <li><a href="usermanagement.php" data-section="user-management">Manage Users</a></li>
+            <li><a href="user_management.php" data-section="user-management">Manage Users</a></li>
         <?php endif; ?>
 
         
         <?php if ($role === 'SuperAdmin') : ?>
-            <li><a href="school_list.php" data-section="school-list">Manage Schools</a></li>
+            <li><a href="school_management.php" data-section="school-list">Manage Schools</a></li>
         <?php endif; ?>
 
        
