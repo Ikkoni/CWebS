@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +26,10 @@
                     <label for="user-password-confirm">Confirm New Password</label>
                     <input type="password" id="user-password-confirm" />
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="user-avatar">Profile Picture</label>
                     <input type="file" id="user-avatar" />
-                </div>
+                </div> -->
                 <button class="btn btn-primary">Update Profile</button>
 </body>
 </div>
