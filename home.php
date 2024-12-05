@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>CWebsS: Custom Website Builder and CMS for Public Schools</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -12,7 +12,7 @@
                     <span>🏫</span>
                 </a>
                 <nav class="nav-links">
-                    <button class="theme-toggle" id="themeToggle">🌓</button>
+                    <button class="hidden" style= "display:hidden"  id="themeToggle">🌓</button>
                     <div id="guestNav">
                         <a href="login.php?"><button class="btn btn-primary"  >Login</button></a>
                     </div>

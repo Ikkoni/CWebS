@@ -6,11 +6,11 @@ session_start();
 
 // Check if the form is submitted
 if (isset($_POST['login'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $user_email = $_POST['user_email'];
+    $user_password = $_POST['user_password'];
 
     // Query to select the user with the provided email
-    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $sql = "SELECT * FROM users WHERE user_email = '$user_email'";
     $result = mysqli_query($con, $sql);
 
     // If a user is found
@@ -18,17 +18,22 @@ if (isset($_POST['login'])) {
         // Fetch the user data
         $user = mysqli_fetch_assoc($result);
 
-        if (password_verify($password, $user['password'])) {
+        if (password_verify($user_password, $user['user_password'])) {
             // If successful, store user data in session and redirect
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['name'] = $user['name'];
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['role'] = $user['role'];
-        if ($_SESSION['role'] == 'SuperAdmin') {
+            $_SESSION['user_id'] = $user['user_id'];
+            $_SESSION['user_first_name'] = $user['user_first_name'];
+            $_SESSION['user_last_name'] = $user['user_last_name'];
+            $_SESSION['user_email'] = $user['user_email'];
+            $_SESSION['user_role'] = $user['user_role'];
+            $_SESSION['user_department'] = $user['user_department'];
+            $_SESSION['user_position'] = $user['user_position'];
+            $_SESSION['user_contact_number'] = $user['user_contact_number'];
+            $_SESSION['user_address'] = $user['user_address'];
+        if ($_SESSION['user_role'] == 'SuperAdmin') {
             header('Location: dashboard_nav.php'); // Redirect to admin dashboard
-        } else if($_SESSION['role'] == 'Admin') {
+        } else if($_SESSION['user_role'] == 'Admin') {
             header('Location: dashboard_nav.php'); // Redirect to user dashboard
-        }else if($_SESSION['role'] == 'Editor') {
+        }else if($_SESSION['user_role'] == 'Editor') {
             header('Location: dashboard_nav.php'); // Redirect to user dashboard
         }
             exit;
@@ -51,18 +56,18 @@ if (isset($_POST['login'])) {
 </head>
 <body>
     <div  class="modal-overlay">
-        <div class="modal">
+        <div class="modal-add-school">
     <div class="modal-header">
         <h2>Login</h2>
     </div>
         <form method="post">
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control" name="email" placeholder="Enter your email"  autocomplete="off" required >
+                <input type="email" class="form-control" name="user_email" placeholder="Enter your email"  autocomplete="off" required >
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" name="password"  placeholder="Enter your password" autocomplete="off" required>
+                <input type="password" class="form-control" name="user_password"  placeholder="Enter your password" autocomplete="off" required>
             </div>
             <button type="submit" name="login" class="btn btn-primary">Login</button>
             <button type="button" onclick="window.history.back();" class="btn btn-primary">Cancel</button>

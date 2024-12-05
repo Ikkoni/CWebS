@@ -30,8 +30,9 @@ include 'dashboard_nav.php';
             <tr>
             <th scope = "row">ID</th>
             <th scope = "col">School Name</th>
-            <th scope = "col">Location</th>
-            <th scope = "col">Admin Email</th>
+            <th scope = "col">School Address</th>
+            <th scope = "col">School Contact Number</th>
+            <th scope = "col">School Email</th>
             <th scope = "col">Action</th>
             </tr>
             </thead>
@@ -41,18 +42,20 @@ include 'dashboard_nav.php';
     $result = mysqli_query($con,$sql);
     if ($result) {
        while( $row = mysqli_fetch_assoc($result)){
-        $id = $row['id'];
-        $school_name = $row['school_name'];
-        $location = $row['location'];
-        $admin_email = $row['admin_email'];
+        $school_id =$row['school_id'];
+        $school_name =$row['school_name'];
+        $school_address =$row['school_address'];
+        $school_contact_number =$row['school_contact_number'];
+        $school_email =$row['school_email'];
         echo '<tr>
-            <th scope = "row">'.$id.'</th>
+            <th scope = "row">'.$school_id.'</th>
             <td>'.$school_name.'</td>
-            <td>'.$location.'</td>
-            <td>'.$admin_email.'</td>
+            <td>'.$school_address.'</td>
+            <td>'.$school_contact_number.'</td>
+            <td>'.$school_email.'</td>
             <td>
-        <a href="edit_school.php? editid='.$id.'"><button class="btn btn-secondary"  >Edit</button></a>
-        <a href="delete_school.php? deleteid='.$id.'"><button class="btn btn-secondary" >Delete</button></a>
+        <a href="edit_school.php? editschool_id='.$school_id.'"><button class="btn btn-secondary"  >Edit</button></a>
+        <a href="delete_school.php? deleteschool_id='.$school_id.'"><button class="btn btn-secondary" >Delete</button></a>
             </td>
             </tr>';
        }

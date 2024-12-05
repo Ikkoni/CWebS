@@ -3,14 +3,14 @@
     include 'connect.php';
     include 'dashboard_nav.php'; 
     //Check if an account is not logged in
-    if(!isset($_SESSION['email'])) {
+    if(!isset($_SESSION['user_email'])) {
         header('location: login.php');
     }
 
-    $id = $_SESSION['id'] ?? $_GET['id'];
+    $user_id = $_SESSION['user_id'] ?? $_GET['user_id'];
     $message = '';
 
-    $select = "SELECT * FROM users WHERE id = '$id'";
+    $select = "SELECT * FROM users WHERE user_id = '$user_id'";
     $result = mysqli_query($con, $select);
     if (mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
@@ -18,16 +18,16 @@
 
     if (isset($_POST['submit'])) {
         //Store form values in variables
-        $first_name = mysqli_real_escape_string($con, $_POST['first_name']);
-        $last_name = mysqli_real_escape_string($con, $_POST['last_name']);
-        $email = mysqli_real_escape_string($con, $_POST['email']);
-        $password = mysqli_real_escape_string($con, $_POST['password']);
-        $confirm_password = mysqli_real_escape_string($con, $_POST['confirm_password']);
+        $user_first_name = mysqli_real_escape_string($con, $_POST['user_first_name']);
+        $user_last_name = mysqli_real_escape_string($con, $_POST['user_last_name']);
+        $user_email = mysqli_real_escape_string($con, $_POST['user_email']);
+        $user_password = mysqli_real_escape_string($con, $_POST['user_password']);
+        $user_confirm_password = mysqli_real_escape_string($con, $_POST['user_confirm_password']);
 
-        if ($password === $confirm_password){
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        if ($user_password === $user_confirm_password){
+        $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
         
-        $select = "SELECT * FROM users WHERE email = '$email'";
+        $select = "SELECT * FROM users WHERE user_email = '$user_email'";
         $result = mysqli_query($con, $select);
 
         if (mysqli_num_rows($result) > 0) {
@@ -37,17 +37,17 @@
         }
 
         else {
-            $update = "UPDATE users SET first_name='$first_name', last_name='$last_name', email='$email', password='$hashed_password' WHERE id = '$id'";
+            $update = "UPDATE users SET user_first_name='$user_first_name', user_last_name='$user_last_name', user_email='$user_email', user_password='$hashed_password' WHERE user_id = '$user_id'";
             $result = mysqli_query($con, $update);
-            $selectUpdate = "SELECT * FROM users WHERE id = '$id'";
+            $selectUpdate = "SELECT * FROM users WHERE user_id = '$user_id'";
             $resultUpdate = mysqli_query($con, $selectUpdate);
             if (mysqli_num_rows($resultUpdate) > 0) {
                 $user = mysqli_fetch_assoc($resultUpdate);
-                $_SESSION['id'] = $user['id'];
-                $_SESSION['first_name'] = $user['first_name'];
-                $_SESSION['last_name'] = $user['last_name'];
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['password'] = $user['password'];
+                $_SESSION['user_id'] = $user['user_id'];
+                $_SESSION['user_first_name'] = $user['user_first_name'];
+                $_SESSION['user_last_name'] = $user['user_last_name'];
+                $_SESSION['user_email'] = $user['user_email'];
+                $_SESSION['user_password'] = $user['user_password'];
             }
         }
     }
@@ -58,13 +58,7 @@
     }
 }
     
-    // Pop up window action handling
-    if (!empty($message)):
-?>
-        <script type="text/javascript">
-            alert('<?php echo htmlspecialchars($message)?>');
-        </script>
-<?php endif; ?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,23 +97,23 @@
             <p>Update your personal information and account settings</p><br>    
             <div class="form-group">
                 <label>First Name</label>
-                <input type="text" name="first_name" placeholder="First Name" value="<?php echo $user['first_name']?>" autocomplete="off" required>
+                <input type="text" name="user_first_name"  value="<?php echo $user['user_first_name']?>" autocomplete="off" required>
             </div>
             <div class="form-group">
             <label>Last Name</label>
-                <input type="text" name="last_name" placeholder="Last Name" value="<?php echo $user['last_name']?>" autocomplete="off" required><br>
+                <input type="text" name="user_last_name" value="<?php echo $user['user_last_name']?>" autocomplete="off" required><br>
             </div>
             <div class="form-group">
             <label>Email</label>
-                <input type="text" name="email" placeholder="Email" value="<?php echo $user['email']?>" autocomplete="off" required><br>
+                <input type="text" name="user_email" placeholder="Email" value="<?php echo $user['user_email']?>" autocomplete="off" required><br>
             </div>
             <div class="form-group">
             <label>Password</label>
-                <input type="password" name="password" placeholder="Password" autocomplete="off" required><br>
+                <input type="password" name="user_password" placeholder="Password" autocomplete="off" required><br>
             </div>
             <div class="form-group">
             <label>Confirm Password</label>
-                <input type="password" name="confirm_password" placeholder="Confirm Password" autocomplete="off" required><br>
+                <input type="password" name="user_confirm_password" placeholder="Confirm Password" autocomplete="off" required><br>
             </div>
   <button class="btn btn-primary"type="submit" name="submit" value="Submit">Update Profile</button>
         </form>
