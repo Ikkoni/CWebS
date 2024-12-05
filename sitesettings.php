@@ -1,3 +1,7 @@
+<?php
+include 'connect.php';
+include 'dashboard_nav.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +9,6 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-<?php include 'dashboard_nav.php'; ?>
      <?php include 'header.php'; ?>
      <div class="dashboard-card">
 <h2>Site Settings</h2>

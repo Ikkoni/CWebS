@@ -1,5 +1,7 @@
-
-
+<?php
+include 'connect.php';
+include 'dashboard_nav.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,6 @@
 </head>
 <body>
         
-<?php include 'dashboard_nav.php'; ?>
      <div class="dashboard-card">
      <?php
         if(isset($_SESSION['success']) && $_SESSION['success'] !=''){
@@ -37,7 +38,7 @@
             </thead>
         <tbody>
     <?php
-        include 'connect.php';
+
     $sql = "SELECT * FROM `users`";
     $result = mysqli_query($con,$sql);
     if ($result) {

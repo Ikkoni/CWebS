@@ -203,22 +203,22 @@
     <!-- Main Content -->
     <div id="content" class="main-content container">
         <div class="content-section">
-            <h2 contenteditable="true">Welcome to Our School</h2>
-            <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla lorem at dolor suscipit, ac vehicula est fermentum.</p>
+            <h2 contenteditable="false">Welcome to Our School</h2>
+            <p contenteditable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla lorem at dolor suscipit, ac vehicula est fermentum.</p>
         </div>
         <div class="content-section">
-            <h3 contenteditable="true">Announcements</h3>
-            <p contenteditable="true">Stay updated with the latest school announcements.</p>
+            <h3 contenteditable="false">Announcements</h3>
+            <p contenteditable="false">Stay updated with the latest school announcements.</p>
         </div>
         <div class="content-section">
-            <h3 contenteditable="true">Upcoming Events</h3>
-            <p contenteditable="true">Don't miss our upcoming events and activities!</p>
+            <h3 contenteditable="false">Upcoming Events</h3>
+            <p contenteditable="false">Don't miss our upcoming events and activities!</p>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p contenteditable="true">&copy; 2024 School Name. <a href="#" contenteditable="true">Privacy Policy</a></p>
+        <p contenteditable="false">&copy; 2024 School Name. <a href="#" contenteditable="true">Privacy Policy</a></p>
     </footer>
 
     <!-- JavaScript -->

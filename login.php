@@ -1,7 +1,6 @@
 <?php
 // Include the database connection
 include 'connect.php'; 
-
 // Start the session to store login data
 session_start();
 
@@ -21,7 +20,7 @@ if (isset($_POST['login'])) {
 
         if (password_verify($password, $user['password'])) {
             // If successful, store user data in session and redirect
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['id'] = $user['id'];
             $_SESSION['name'] = $user['name'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role'];

@@ -37,7 +37,7 @@
         $stmt->execute();
 
         if ($stmt->affected_rows > 0) {
-            header('location:usermanagement.php');
+            header('location:user_management.php');
         } else {
             die(mysqli_error($con));
         }

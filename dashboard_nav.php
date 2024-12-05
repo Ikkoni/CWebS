@@ -23,7 +23,7 @@ $role = $_SESSION['role'] ?? $_GET['role'];
         <li><a href="edit_webpage.php" data-section="webpage-content">Edit Webpage Content</a></li>
         
         <?php if ($role !== 'Editor') : ?>
-            <li><a href="webpagedesign.php" data-section="webpage-design">Modify Website Design</a></li>
+            <!-- <li><a href="webpagedesign.php" data-section="webpage-design">Modify Website Design</a></li> -->
             <li><a href="user_management.php" data-section="user-management">Manage Users</a></li>
         <?php endif; ?>
 
@@ -34,12 +34,12 @@ $role = $_SESSION['role'] ?? $_GET['role'];
 
        
         <?php if ($role === 'Admin') : ?>
-            <li><a href="sitesettings.php" data-section="site-settings">Site Settings</a></li>
+            <!-- <li><a href="sitesettings.php" data-section="site-settings">Site Settings</a></li> -->
         <?php endif; ?>
 
         
         <?php if ($role === 'SuperAdmin') : ?>
-            <li><a href="systemsettings.php" data-section="system-settings">System Settings</a></li>
+            <!-- <li><a href="systemsettings.php" data-section="system-settings">System Settings</a></li> -->
         <?php endif; ?>
 
         
