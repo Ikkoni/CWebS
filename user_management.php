@@ -31,8 +31,10 @@ include 'dashboard_nav.php';
             <th scope = "col">First Name</th>
             <th scope = "col">Last Name</th>
             <th scope = "col">Email</th>
-            <th scope = "col">Password</th>
             <th scope = "col">Role</th>
+            <th scope = "col">Department</th>
+            <th scope = "col">Position</th>
+            <th scope = "col">Address</th>
             <th scope = "col">Action</th>
             </tr>
             </thead>
@@ -43,22 +45,27 @@ include 'dashboard_nav.php';
     $result = mysqli_query($con,$sql);
     if ($result) {
        while( $row = mysqli_fetch_assoc($result)){
-        $id = $row['id'];
-        $first_name = $row['first_name'];
-        $last_name = $row['last_name'];
-        $email = $row['email'];
-        $password = $row['password'];
-        $role = $row['role'];
+        $user_id = $row['user_id'];
+        $user_first_name = $row['user_first_name'];
+        $user_last_name = $row['user_last_name'];
+        $user_email = $row['user_email'];
+        $user_role = $row['user_role'];
+        $user_department = $row['user_department'];
+        $user_position = $row['user_position'];
+        $user_contact_number = $row['user_contact_number'];
+        $user_address = $row['user_address'];
         echo '<tr>
-            <th scope = "row">'.$id.'</th>
-            <td>'.$first_name.'</td>
-            <td>'.$last_name.'</td>
-            <td>'.$email.'</td>
-            <td>'.$password.'</td>
-            <td>'.$role.'</td>
+            <th scope = "row">'.$user_id.'</th>
+            <td>'.$user_first_name.'</td>
+            <td>'.$user_last_name.'</td>
+            <td>'.$user_email.'</td>
+            <td>'.$user_role.'</td>
+            <td>'.$user_department.'</td>
+            <td>'.$user_position.'</td>
+            <td>'.$user_address.'</td>
             <td>
-        <a href="edit_user.php? editid='.$id.'"><button class="btn btn-secondary"  >Edit</button></a>
-        <a href="delete_user.php? deleteid='.$id.'"><button class="btn btn-secondary" >Delete</button></a>
+        <a href="edit_user.php? edit_user_id='.$user_id.'"><button class="btn btn-secondary"  >Edit</button></a>
+        <a href="delete_user.php? delete_user_id='.$user_id.'"><button class="btn btn-secondary" >Delete</button></a>
             </td>
             </tr>';
        }
