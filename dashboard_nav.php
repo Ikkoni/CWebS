@@ -14,14 +14,13 @@ session_start();
 $role = $_SESSION['role'] ?? $_GET['role']; 
 ?>
      
-
 <div id="<?php echo htmlspecialchars($role); ?>-dashboard" class="dashboard">
     <div class="container">
     <nav class="dashboard-nav">
     <h3><?php echo ucfirst($role); ?> Menu</h3>
     <ul>
       
-        <li><a href="editwebpage.php" data-section="webpage-content">Edit Webpage Content</a></li>
+        <li><a href="edit_webpage.php" data-section="webpage-content">Edit Webpage Content</a></li>
         
         <?php if ($role !== 'Editor') : ?>
             <li><a href="webpagedesign.php" data-section="webpage-design">Modify Website Design</a></li>
@@ -44,7 +43,7 @@ $role = $_SESSION['role'] ?? $_GET['role'];
         <?php endif; ?>
 
         
-        <li><a href="profilesettings.php" data-section="profile-settings">Profile Settings</a></li>
+        <li><a href="account.php" data-section="account">Account</a></li>
     </ul>
 </nav>
 
