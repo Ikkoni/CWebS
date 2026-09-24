@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link href="style.css" rel="stylesheet">
-</head>
-<body>  
-    
-        <header class="header">
-            <div class="container header-content">
-                <a href="#" class="logo" data-action="home">
-                    CWebS
-                    <span>🏫</span>
-                </a>
-                <nav class="nav-links">
-                    <button class="hidden" id="themeToggle">🌓</button>
-                    <div id="guestNav" class="hidden">
-                        <button class="btn btn-secondary" data-action="login">Log In</button>
-                    </div>
-                    <div id="userNav">
-                        <a href = "home.php"><button class="btn btn-primary ">Log Out</button></a>
-                    </div>
-                </nav>
-            </div>
-        </header>
-</body>
-</html>
+<?php
+/**
+ * Header Include (Backward Compatibility Layer)
+ * For new pages, prefer including 'includes/layout_header.php'.
+ */
+require_once __DIR__ . '/includes/layout_header.php';

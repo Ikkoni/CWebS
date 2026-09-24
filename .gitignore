@@ -1,0 +1,14 @@
+# Environment Variables
+.env
+
+# Dependencies & IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Logs & Cache
+*.log
+scratch/
